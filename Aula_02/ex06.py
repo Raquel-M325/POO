@@ -13,14 +13,20 @@ j = int(input())
 lista = [a, b, c, d, e, f, g, h, i, j]
 lista1 = []
 
-for i in range(10):
-    if lista[i] < 0:
-        valor = lista[i] * (-1)
-        lista1.append(f"-{valor}")
-        #preciso resolver essa parte da conversão.
+for num in lista:
+    if num < 0:
+        valor = abs(num)
+        lista1.append(valor)
         
     else: 
-         lista1.append(lista[i])
+         lista1.append(num)
 
 lista1.sort()
-print('Resultado: ', *lista1)
+print('Resultado:', end=' ')
+
+for num in lista1:
+    if -num in lista:
+        print(f'-{num}', end=' ')
+    else:
+        print(num, end=' ')
+print()
