@@ -11,3 +11,4 @@ s = 'POO'
 x = triangulo()
 
 #o triangulo() é o objeto, não x = triangulo()
+
