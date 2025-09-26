@@ -4,22 +4,26 @@ class Conta():
         self.titular = str(input())
         self.numero = int(input())
         self.saldo = float(input())
+        self.pergunta = str(input('Quer sacar: '))
 
     def saldo_antigo(self):
         return self.saldo
-
+    
+    def saque(self, valor):
+        if valor > self.saldo:
+            return "Saldo insuficiente"
+        self.sacar = int(input('Digite o quanto você quer sacar: '))
+        return self.saldo - self.sacar
+    
     def depositorio(self):
         self.deposito = int(input('Digite o quanto você quer depositar: '))
         return self.saldo + self.deposito
 
-    def saque(self):
-        self.sacar = int(input('Digite o quanto você quer sacar: '))
-        return self.saldo - self.sacar
 
     def saldo_novo(self):
         return saldo.
 
-#OBS: preciso saber é como atualizar o valor do saldo sem ficar separado
+#OBS: preciso saber é como atualizar o valor do saldo sem ficar separado e colocar as condições
 
 classe = Conta() 
 
