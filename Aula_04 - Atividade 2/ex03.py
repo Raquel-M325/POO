@@ -3,38 +3,32 @@ class Conta():
     def __init__(self):
         self.titular = str(input('seu titular: '))
         self.numero = int(input('sua identidade: '))
-        self.saldo = float(input('saldo: '))
+        self.saldo = int(input('saldo: '))
         
 
-    def saldo_antigo(self):
+    def __saldo_antigo(self):
         return self.saldo
     
-    def bancario(self):
-        self.ganho = 0
-        self.tirada = 0
+    def __bancario(self): #a operação terá que ser tudo junto para ele trabalhar, senão ele separa e dá erro
+        self.deposito = 0 #tem que definir os objetos antes
+        self.sacar = 0
         
-        self.pergunta = str(input('Quer sacar: '))
-        if self.pergunta == 'Sim':
+        self.pergunta = str(input('Quer sacar: ').strip().lower()) #strip remove os espaços; lower converte ao minusculo
+        if self.pergunta == 'sim':
             self.sacar = int(input('Digite o quanto você quer sacar: '))
-            self.tirada = self.saldo - self.sacar
-        else:
-            self.perguntad = str(input('Quer depositar: '))
-            if self.perguntad == 'Sim':
+            self.perguntad = str(input('Quer depositar: ').strip().lower())
+            if self.perguntad == 'sim':
                 self.deposito = int(input('Digite o quanto você quer depositar: '))
-                self.ganho = self.saldo + self.deposito
             else:
                 pass
-            
-        self.saldonovo = self.ganho - self.tirada
-        return self.saldonovo
 
-
-#OBS: preciso saber é como atualizar o valor do saldo sem ficar separado e colocar as condições
+        self.saldo = (self.saldo + self.deposito) - self.sacar
+        return self.saldo
 
 classe = Conta() 
 
-print(f'Seu saldo anterior: {classe.saldo_antigo()} R$')
-print(f'Seu saldo atual: {classe.bancario()} R$')
+print(f'Seu saldo anterior: {classe._Conta__saldo_antigo()} R$')
+print(f'Seu saldo atual: {classe._Conta__bancario()} R$')
 
 
 
