@@ -1,7 +1,7 @@
 class Circulo:
     def __init__(self):
         self.pi = 3.14
-        self.raio = int(input('Digite o raio: 5'))
+        self.raio = int(input('Digite o raio: '))
        
     def area(self):
         return self.pi * (self.raio ** 2)
