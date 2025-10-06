@@ -38,6 +38,14 @@ c = Conta()
 
 #INTERFACE COM USUÁRIO
 
+#TITULAR
+titular = str(input('Qual seu nome completo: '))
+
+
+#IDENTIDADE
+identidade = int(input('Agora a sua identidade: '))
+
+
 #SALDO
 saldo_atual = float(input('Informe qual seu saldo atual: '))
 c.set_saldo(saldo_atual)
