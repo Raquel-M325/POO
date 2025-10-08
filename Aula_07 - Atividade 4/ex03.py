@@ -1,7 +1,8 @@
-class Conversor():
+class Conversor:
     def __init__(self, num):
         if num <= 0:
             raise ValueError('Erro: Valor deve ser positivo')
+        
         elif num == float:
             raise ValueError('Erro: Tem que ser valor inteiro')
         
@@ -20,8 +21,8 @@ class Conversor():
     
     def Binario(self):
 
-        
-    def ToString(self):
+    def __str__(self): #ToString
+        return f'Número Binário: {}/n Número Decimal: {self.num}'
 
 
 c = Conversor(5)
