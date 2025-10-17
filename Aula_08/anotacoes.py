@@ -67,7 +67,19 @@ print(vars(a))
 
 clientes = [a, b, c]
 
-with open('clientes.json', mode="w") as arquivo:
-    json.dump(clientes, arquivo, default = vars)
+with open('clientes.json', mode="r") as arquivo: #mode=w é para write de escrever e mode=r é read para ler do arquivo json, só que o meu tá incompleto o código, por isso não está funcionando direito
+    list_disc = json.load(arquivo)
+    for dic in list_dic:
+        c = Cliente(dic["id"], dic["nome"])
+        clientes.append(c)
+
+for c i cliente: print(c)
+
+#streamlit - pesquisa sobre ele
+CRUD 
+C - create
+R - read
+U - update
+D - delete
 
    

@@ -5,3 +5,5 @@
 #set é o que me permite modificar
 #get é o que retorna o valor
 #__ é o que capsula/esconde a variavel para promover a segurança
+
+#tente usar o try para tentar abrir o arquivo JSON
