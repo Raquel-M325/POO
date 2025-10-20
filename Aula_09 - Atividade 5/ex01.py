@@ -8,25 +8,25 @@ class Cliente:
         self._fone = f
     
     def set_id(self, id):
-        if self._id < 0 or self._id == str:
+        if self._id < 0 or not isinstance(id, int):
             raise ValueError('Erro: ID Inválido')
         else:
             self._id = id
 
     def set_nome(self, n):
-        if self._nome == int:
+        if not isinstance(n, str):
             raise ValueError('Erro: Nome Inválido')
         else:
             self._nome = n
 
     def set_email(self, e):
-        if self._email == int:
+        if not isinstance(e, str):
             raise ValueError('Erro: Email Inválido')
         else:
             self._email = e
     
     def set_fone(self, f):
-        if self._fone == int:
+        if not isinstance(f, str):
             raise ValueError('Erro: Fone Inválido')
         else:
             self._fone = f
@@ -47,28 +47,48 @@ class Cliente:
         return f"Id: {self._id} \n Nome: {self._nome} \n Email: {self._email} \n Fone: {self._fone}"
 
 class Venda: #INCOMPLETO
-    def __init__(self, id: int):
+    def __init__(self, id: int, Cliente):
         self._id = id
-        self.data = datetime
-        self.carrinho = bool
-        self.total = float
+        self.data = None
+        self.carrinho = True
+        self.total = 0.0
         self._IdCliente = Cliente
 
-    # def set_data(self, datetime): tenho que analisar se isso faz sentido
-    #     if self.data < 0 or self.data == 0:
-    #         raise ValueError('Data Inválido')
-    #     else:
-    #         self.data = datetime
+    def set_data(self, nova_data):  
+        if not isinstance(nova_data, datetime.datetime):
+            raise ValueError('Data inválida: deve ser um objeto datetime')
+        
+        self.data = nova_data
 
-    def set_
+    def set_carrinho(self):
+        
+    def calc_carrinho(self):
+
+
+    def set_total(self):
+
+
+    def get_data(self):
+        return
+
+    def get_carrinho(self):
+        return
+
+    def get_total(self):
+        return 
+
 
     def __str__(self):
-        return f""
+        if self._IdCliente:
+            self.cliente_resposta = self._IdCliente
+        else:
+            self.cliente_resposta = "Não há cliente"
+        return f"Id: {self._id} \n Data: {} \n Carrinho: {} \n Total: {self.total} \n Cliente: {self.cliente_resposta}"
     
 
         
-class VendaItem: #INCOMPLETO
-    def __init__(self, id: int, q: int, p: float): #double é o "mesmo" do float
+class VendaItem:
+    def __init__(self, id: int, q: int, p: float, Venda, Produto): #double é o "mesmo" do float
         self._id = id
         self.qtd = q
         self.preco = p
@@ -97,7 +117,7 @@ class VendaItem: #INCOMPLETO
         return f"Id: {self._id} \n Quantidade: {self.qtd} \n Preço: {self.preco} \n Venda: {self.venda_resposta} \n Produto: {self.produto_resposta}"
     
 class Produto: 
-    def __init__(self, id: int, d: str, p: float, e: int):
+    def __init__(self, id: int, d: str, p: float, e: int, Categoria):
         self._id = id
         self.descricao = d
         self.preco = p
@@ -105,13 +125,12 @@ class Produto:
         self.idCategoria = Categoria
 
     def set_preco(self, p):
-        if p <= 0:
+        if p <= 0 or not isinstance(p, float):
             raise ValueError ('Preço Inválido')
-        else:
-            self.preco = p
+        self.preco = p
 
     def set_estoque(self, e):
-        if e <= 0:
+        if e <= 0 or not isinstance(e, int):
             raise ValueError('Erro: Acabou o estoque!')
         else:
             self.estoque = e
@@ -136,7 +155,7 @@ class Categoria:
         self.descricao = d
 
     def set_descricao(self, d):
-        if d == int:
+        if not isinstance(d, str):
             raise ValueError ('Erro: Tem que descrever o produto!')
         else:
             self.descricao = d
