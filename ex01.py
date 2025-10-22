@@ -46,7 +46,7 @@ class Cliente:
     def __str__(self):
         return f"Id: {self._id} \n Nome: {self._nome} \n Email: {self._email} \n Fone: {self._fone}"
 
-class Venda: #INCOMPLETO
+class Venda:
     def __init__(self, id: int, Cliente):
         self._id = id
         self.data = None
@@ -60,22 +60,26 @@ class Venda: #INCOMPLETO
         
         self.data = nova_data
 
-    def set_carrinho(self):
-        
-    def calc_carrinho(self):
 
+    def set_total(self, t):
+        if t <= 0:
+            raise ValueError('Erro: Está vazio')
+        else:
+            return self.total == self.t
 
-    def set_total(self):
-
+    def calc_total(self):
+        if self.total <= 0:
+            self.carrinho = False
+        return self.carrinho
 
     def get_data(self):
-        return
+        return self.data
 
     def get_carrinho(self):
-        return
+        return self.carrinho
 
     def get_total(self):
-        return 
+        return self.total
 
 
     def __str__(self):
@@ -83,7 +87,7 @@ class Venda: #INCOMPLETO
             self.cliente_resposta = self._IdCliente
         else:
             self.cliente_resposta = "Não há cliente"
-        return f"Id: {self._id} \n Data: {} \n Carrinho: {} \n Total: {self.total} \n Cliente: {self.cliente_resposta}"
+        return f"Id: {self._id} \n Data: {self.data} \n Carrinho: {self.carrinho} \n Total: {self.total} \n Cliente: {self.cliente_resposta}"
     
 
         
@@ -166,9 +170,42 @@ class Categoria:
     def __str__(self):
         return f"Id: {self._id} \n Descrição: {self.descricao}"
     
+class UI: #IMCOMPLETO
+    def __init__(self):
+        self.categoria = []
+        self.cliente = []
+        self.venda = []
+        self.produto = []
+        self.vendaitem = []
 
+    def setup_basico(self):
+
+        id_cat = int(input())
+        cat = Categoria(id, d)
+        self.categoria.append(cat)
+
+        pro = Produto(id, d, p, e, cat)
+        self.produto.append(pro)
+
+        cli = Cliente(id, n, e, f) #é solitário, não precisa de alguém para interligar, mas PRECISA CORRIGIR
+        self.cliente.append(cli)
+
+        ven = Venda(id, cli)
+        self.venda.append(ven)
+
+        venit = VendaItem(id, q, p, ven, pro)
+        self.vendaitem.append(venit)
+
+        return cat, pro, cli, ven, venit
     
+ui = UI()
+categoria, produto, cliente, venda, vendaitem = ui.setup_basico()
 
+print(categoria)
+print(produto)
+print(cliente)
+print(venda)
+print(vendaitem)
         
 
     
