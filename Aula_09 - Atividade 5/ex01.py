@@ -51,8 +51,14 @@ class Venda:
         self._id = id
         self.data = None
         self.carrinho = True
-        self.total = 0.0
+        self.total = 0.0 #pagamento de todos os produtos feitos, uma cesta/carrinho, valor final
         self._IdCliente = Cliente
+
+     def set_id(self, id):
+        if self._id < 0 or not isinstance(id, int):
+            raise ValueError('Erro: ID Inválido')
+        else:
+            self._id = id
 
     def set_data(self, nova_data):  
         if not isinstance(nova_data, datetime.datetime):
@@ -68,7 +74,7 @@ class Venda:
             return self.total == self.t
 
     def calc_total(self):
-        if self.total <= 0:
+        if self.total <= 0: #serve para notificar se quer pagar, caso pagou, será falso, ou seja, terá que calcular o valor total de pagamento e perguntar se quer levar o carrinho!
             self.carrinho = False
         return self.carrinho
 
@@ -94,16 +100,24 @@ class Venda:
 class VendaItem:
     def __init__(self, id: int, q: int, p: float, Venda, Produto): #double é o "mesmo" do float
         self._id = id
-        self.qtd = q
+        self.qtd = q #tem que multiplicar o tanto que o produto tem, quantidade * produto, valor processo
         self.preco = p
         self.idVenda = Venda
         self.idProduto = Produto
+
+     def set_id(self, id):
+        if self._id < 0 or not isinstance(id, int):
+            raise ValueError('Erro: ID Inválido')
+        else:
+            self._id = id
 
     def set_qtd(self, q):
         if q <= 0:
             raise ValueError('Erro: Não há item quantidade')
         else:
             self.qtd = q
+        
+        while 
 
     def get_qtd(self):
         return self.qtd
@@ -124,7 +138,7 @@ class Produto:
     def __init__(self, id: int, d: str, p: float, e: int, Categoria):
         self._id = id
         self.descricao = d
-        self.preco = p
+        self.preco = p #preço de um produto somente, valor inicial
         self.estoque = e
         self.idCategoria = Categoria
 
@@ -152,6 +166,9 @@ class Produto:
            self.categoria_resposta = 'Sem Categoria' 
         return f"Id: {self._id} \n Descrição: {self.descricao} \n Preço: {self.preco} \n Estoque: {self.estoque} \n Categoria: {self.categoria_resposta}"
 
+p1 = Produto(1, 'Café 3 corações', 10, 100, 1)
+p2 = Produto(2, 'Coca-cola', 5, 20, 1)
+p3 = Produto(3, 'Fralda', 20, 30, 3) 
     
 class Categoria: 
     def __init__(self, id: int, d: str):
@@ -170,42 +187,49 @@ class Categoria:
     def __str__(self):
         return f"Id: {self._id} \n Descrição: {self.descricao}"
     
-class UI: #IMCOMPLETO
-    def __init__(self):
-        self.categoria = []
-        self.cliente = []
-        self.venda = []
-        self.produto = []
-        self.vendaitem = []
+c1 = Categoria(1,'Alimentos e bebidas')
+c2 = Categoria(2,'Bebê')
+c3 = Categoria(3,'Automotivo')
 
-    def setup_basico(self):
 
-        id_cat = int(input())
-        cat = Categoria(id, d)
-        self.categoria.append(cat)
 
-        pro = Produto(id, d, p, e, cat)
-        self.produto.append(pro)
-
-        cli = Cliente(id, n, e, f) #é solitário, não precisa de alguém para interligar, mas PRECISA CORRIGIR
-        self.cliente.append(cli)
-
-        ven = Venda(id, cli)
-        self.venda.append(ven)
-
-        venit = VendaItem(id, q, p, ven, pro)
-        self.vendaitem.append(venit)
-
-        return cat, pro, cli, ven, venit
     
-ui = UI()
-categoria, produto, cliente, venda, vendaitem = ui.setup_basico()
+# class UI: #IMCOMPLETO
+#     def __init__(self):
+#         self.categoria = []
+#         self.cliente = []
+#         self.venda = []
+#         self.produto = []
+#         self.vendaitem = []
 
-print(categoria)
-print(produto)
-print(cliente)
-print(venda)
-print(vendaitem)
+#     def setup_basico(self):
+
+
+#         cat = Categoria(id, d)
+#         self.categoria.append(cat)
+
+#         pro = Produto(id, d, p, e, cat)
+#         self.produto.append(pro)
+
+#         cli = Cliente(id, n, e, f) #é solitário, não precisa de alguém para interligar, mas PRECISA CORRIGIR
+#         self.cliente.append(cli)
+
+#         ven = Venda(id, cli)
+#         self.venda.append(ven)
+
+#         venit = VendaItem(id, q, p, ven, pro)
+#         self.vendaitem.append(venit)
+
+#         return cat, pro, cli, ven, venit
+    
+# ui = UI()
+# categoria, produto, cliente, venda, vendaitem = ui.setup_basico()
+
+# print(categoria)
+# print(produto)
+# print(cliente)
+# print(venda)
+# print(vendaitem)
         
 
     

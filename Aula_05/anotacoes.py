@@ -7,3 +7,5 @@
 #__ é o que capsula/esconde a variavel para promover a segurança
 
 #tente usar o try para tentar abrir o arquivo JSON
+
+# 1 significa uma unidade, já * seignifica que há vários, isso interfere na programação
