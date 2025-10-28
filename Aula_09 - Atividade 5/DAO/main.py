@@ -6,39 +6,41 @@ from categoria import Categoria, CategoriaDAO
 
 
 #--------------CHAMADO-------------------------------
-vi1 = VendaItem(0, 10, pro1.preco * 10, v1, pro1)
-VendaItemDAO.inserir(vi1)
-
-v1 = Venda(0, cli1, '2025-10-28')
-VendaDAO.inserir(v1)
-
-cli1 = Cliente(0, 'Raquel', 'raquel@gmail.com', '99999-9999)
-Cliente.inserir(cli1)
-
-pro1 = Produto(0, 'Brigadeiro', 2.50, 100, cat1)
-ProdutoDAO(pro1)
 
 cat1 = Categoria(0, 'Doces')
 CategoriaDAO.inserir(cat1)
 
+pro1 = Produto(0, 'Brigadeiro', 2.50, 100, cat1)
+ProdutoDAO.inserir(pro1)
+
+cli1 = Cliente(0, 'Raquel', 'raquel@gmail.com', '99999-9999')
+ClienteDAO.inserir(cli1)
+
+v1 = Venda(0, cli1, '2025-10-28')
+VendaDAO.inserir(v1)
+
+vi1 = VendaItem(0, 10, pro1.preco * 10, v1, pro1)
+VendaItemDAO.inserir(vi1)
+
+
 #--------------MOSTRAR TUDO----------------------
+
 print('Categorias:')
-for c in CategoriasDAO.listar():
-  print(c)
+for c in CategoriaDAO.listar():
+    print(c)
 
-print(\n'Produto:')
+print('\nProdutos:')
 for p in ProdutoDAO.listar():
-  print(p)
+    print(p)
 
-print(\n'Clientes:')
-for c in ClientesDAO.listar():
-  print(c)
+print('\nClientes:')
+for c in ClienteDAO.listar():
+    print(c)
 
-print(\n'Venda:')
+print('\nVendas:')
 for v in VendaDAO.listar():
-  print(v)
+    print(v)
 
-print(\n'Itens da Venda:')
-for vi in VendaItemDAO:
-  print(vi)
-
+print('\nItens da Venda:')
+for vi in VendaItemDAO.listar():
+    print(vi)
