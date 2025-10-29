@@ -1,0 +1,9 @@
+[
+    {
+        "id": 1,
+        "descricao": "Brigadeiro",
+        "preco": 2.5,
+        "estoque": 100,
+        "categoria": 1
+    }
+]
