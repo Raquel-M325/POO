@@ -7,6 +7,9 @@ class Cliente:
         self._nome = n
         self._email = e
         self._fone = f
+
+    def reajustar(self, percentual):
+        self.preco = self.preco * (1 + percentual / 100)
     
     def set_id(self, id):
         if id < 0 or not isinstance(id, int):
