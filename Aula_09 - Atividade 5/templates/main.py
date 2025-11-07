@@ -1,10 +1,45 @@
-from cliente import Cliente, ClienteDAO
-from categoria import Categoria, CategoriaDAO
-from produto import Produto, ProdutoDAO
+from models.cliente import Cliente, ClienteDAO
+from models.categoria import Categoria, CategoriaDAO
+from models.produto import Produto, ProdutoDAO
 
 class UI:
+    
+
     @staticmethod
-    def main():
+
+    def main(): 
+
+
+
+    def menu_visitante():
+        print('Bem-Vindo ao nosso sistema de compra!')
+        print('1 - Entrar na conta')
+        print('2 - Cadastrar uma nova conta')
+        print('3 - Sair')
+
+        opcao = int(input('Escolha uma opção: '))
+        if opcao == 1:
+            UI.entrar()
+        
+        if opcao == 2:
+            UI.cadastrar()
+
+        else:
+            UI.menu_visitante()
+
+    def cadastrar():
+       UI.cliente_inserir()
+
+    def entrar():
+        email = print(input('Digite o seu email: ')) #tá incompleto
+        senha = print(input('Digite a sua senha: '))
+      
+
+    def menu_cliente():
+
+        
+
+    def menu_adm():  #só adm é que poderá fazer isso
         print('Bem vindo ao nosso Sistema de Comércio Eletrônico!')
         print('Escolha o nosso MENU abaixo:')
         print('0 - Sair')
@@ -26,7 +61,7 @@ class UI:
         print('11 - atualizar produto')
         print('12 - excluir produto')
 
-        
+
     @staticmethod
     def menu():
         while True: #para ficar sempre perguntando até o usuário querer sair com 0
