@@ -10,4 +10,4 @@ class Retangulo:
         return self.base * self.altura
     
     def calc_diagonal(self):
-        return (self.base**2 * self.altura**2)**0.5
+        return (self.base**2 + self.altura**2)**0.5
