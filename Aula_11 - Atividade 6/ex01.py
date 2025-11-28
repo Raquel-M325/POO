@@ -49,4 +49,4 @@ class Equacao:
         return self.x1, self.x2
 
     def __str__(self):
-        return f" {}"
+        return f"Valor a = {self.a} \n Valor b = {self.b} \n Valor c = {self.c}" 
