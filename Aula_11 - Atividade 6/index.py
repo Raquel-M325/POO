@@ -1,5 +1,7 @@
 import streamlit as st
 from ex01 import Equacao
+import pandas as pd
+import numpy as np 
 
 st.header("Equação de 2° Grau")
 a = st.text_input("Informe o valor a")
@@ -19,5 +21,15 @@ if st.button("Calcular"):
         except ValueError as err:
             st.warning(str(err))
 
+        x_vals = np.linspace(-10, 10, 100) #preciso praticar melhor
+        y_vals = [e.calc_y(x_val) for x_val in x_vals]
+
+        df = pd.DataFrame({"x": x_vals, "y": y_vals})
+        st.line_chart(df, x="x", y="y")
+
+    
+
     except Exception as erro:
         st.error(f"Erro: {erro}")
+
+    
