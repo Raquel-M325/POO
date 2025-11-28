@@ -2,7 +2,7 @@ import streamlit as st
 import Aula09_Atividade_5.views from View
 import pandas as pd 
 
-class ManterClienteUI: #não está cmompleto, mas tem o professor para ver!
+class ManterClienteUI: #não está completo, mas tem o professor para ver!
     def main():
         st.header("Cadastro de Clientes")
         tab1, tab2, tab3, tab4 = st.tabs(["Listar", "Inserir", "Atualizar", "Excluir"])
